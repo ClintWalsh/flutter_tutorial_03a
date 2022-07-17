@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:english_words/english_words.dart';
+import './random_words.dart';
 
 void main() {
   runApp(MyApp());
@@ -8,7 +8,6 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final wordPair = WordPair.random();
     return MaterialApp(
       theme: ThemeData(
         primarySwatch: Colors.purple,
@@ -18,40 +17,3 @@ class MyApp extends StatelessWidget {
   } // build
 } // MyApp
 
-class RandomWords extends StatefulWidget {
-  @override
-  RandomWordsState createState() => RandomWordsState();
-} // RandomWords
-
-class RandomWordsState extends State<RandomWords> {
-  Widget _buildList() {
-    return ListView(
-      padding: const EdgeInsets.all(8),
-      children: <Widget>[
-        Container(
-          height: 50,
-          color: Colors.amber[600],
-          child: const Center(child: Text('Entry A')),
-        ),
-        Container(
-          height: 50,
-          color: Colors.amber[500],
-          child: const Center(child: Text('Entry B')),
-        ),
-        Container(
-          height: 50,
-          color: Colors.amber[100],
-          child: const Center(child: Text('Entry C')),
-        ),
-      ],
-    );
-  }
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('WordPair Generator'),
-      ), // AppBar
-      body: _buildList()
-    ); // Scaffold
-  } // build
-} // RandomWordsState
